@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: min-content min-content auto;
     grid-template-areas: 
-    "nova-tarefa"
+    "novo-jogo"
     "cronometro"
     "jogos"
     ;
@@ -17,7 +17,7 @@
   
     @media screen and (min-width:1280px)  {
       grid-template-areas: 
-      "nova-tarefa jogos"
+      "novo-jogo jogos"
       "cronometro jogos"
       ;
       column-gap: 64px;

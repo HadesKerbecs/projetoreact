@@ -1,8 +1,9 @@
-import React from 'react';
-import './style.scss';
+import React, { useState } from 'react';
+import style from './Lista.module.scss';
+import Item from './Item';
 
 function Lista(){
-    const jogos = [{
+    const [jogos, setJogos] = useState([{
         jogo: 'Fortnite',
         tempo: '02:00:00'
     }, {
@@ -11,16 +12,18 @@ function Lista(){
     }, {
         jogo: 'God of War Ragnarok',
         tempo: '03:00:00'
-    }]
+    }]);
     return(
-        <aside className='listaJogos'>
-            <h2> Jogos do dia </h2>
+        <aside className={style.listaJogos}>
+            <h2 onClick={() => {
+                setJogos([...jogos, {jogo: "Need for Speed", tempo: "02:30:00"}])
+            }}> Jogos do dia </h2>
             <ul>
                 {jogos.map((item, index)=> (
-                    <li key={index} className='item'> 
-                        <h3>{item.jogo}</h3>
-                        <span>{item.tempo}</span>
-                    </li>
+                    <Item 
+                    key={index}
+                    {...item}
+                    />
                 ))}
             </ul>
         </aside>   
